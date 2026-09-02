@@ -1,0 +1,317 @@
+<title>Four Lenses on FY2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Source+Sans+3:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FDFBF6; --parch:#FBF4E7; --ink:#1B2A4A; --ink-deep:#0F1A33; --crimson:#8B2232;
+  --gold:#C9A84C; --amber:#D4760A; --green:#1A6A5A; --tan:#C9BFA8; --slate:#4A5568;
+  --bg:var(--paper); --bg2:var(--parch); --fg:var(--ink); --fg2:var(--slate); --line:var(--tan);
+  --accent:var(--crimson); --bar:#1B2A4A; --bar2:#6B7A99; --panel:var(--ink-deep); --panel-fg:#FDFBF6; --panel-accent:var(--gold);
+  --l4-gov:#1A6A5A; --l4-gray:#D4760A; --l4-fraught:#8B2232; --l4-open:#4A5568;
+  --grain:rgba(27,42,74,0.04);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#0F1A33; --bg2:#152442; --fg:#F2ECDF; --fg2:#B9B3A6; --line:#3A4A6E; --accent:#E0B45C;
+  --bar:#C9A84C; --bar2:#7D8BAA; --panel:#FBF4E7; --panel-fg:#1B2A4A; --panel-accent:#8B2232;
+  --l4-gov:#4FB39E; --l4-gray:#E8A24A; --l4-fraught:#E07A8A; --l4-open:#B9B3A6; --grain:rgba(253,251,246,0.035);
+}}
+:root[data-theme="dark"]{
+  --bg:#0F1A33; --bg2:#152442; --fg:#F2ECDF; --fg2:#B9B3A6; --line:#3A4A6E; --accent:#E0B45C;
+  --bar:#C9A84C; --bar2:#7D8BAA; --panel:#FBF4E7; --panel-fg:#1B2A4A; --panel-accent:#8B2232;
+  --l4-gov:#4FB39E; --l4-gray:#E8A24A; --l4-fraught:#E07A8A; --l4-open:#B9B3A6; --grain:rgba(253,251,246,0.035);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Source Sans 3",system-ui,sans-serif;font-size:16px;line-height:1.5;
+  background-image:radial-gradient(var(--grain) 1px,transparent 1px);background-size:4px 4px}
+.wrap{max-width:860px;margin:0 auto;padding:20px 18px 64px}
+h1,h2,h3{font-family:"EB Garamond",Georgia,serif;letter-spacing:-0.015em;text-wrap:balance;margin:0}
+h1{font-size:clamp(34px,7vw,52px);font-weight:700;line-height:1.02}
+h1 em{font-style:italic;color:var(--accent);font-weight:600}
+h2{font-size:clamp(24px,4.5vw,32px);font-weight:600;margin:0 0 6px}
+h3{font-size:20px;font-weight:600}
+p{margin:0 0 12px;max-width:66ch}
+.eyebrow{font-family:"Fira Code",monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.stamp{display:inline-block;font-family:"Fira Code",monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--accent);color:var(--accent);padding:3px 7px;line-height:1.2;vertical-align:middle}
+.stamp.muted{border-color:var(--fg2);color:var(--fg2)}
+.mast{border-bottom:2px solid var(--accent);padding-bottom:18px;margin-bottom:22px}
+.mast .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.mast .row .mono{font-family:"Fira Code",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg2)}
+.sub{font-size:18px;color:var(--fg2);font-family:"EB Garamond",serif;font-style:italic;margin-top:8px}
+section{margin:34px 0}
+.rule{border:0;border-top:1px solid var(--line);margin:0 0 18px}
+.disc{background:var(--bg2);border-left:4px solid var(--accent);padding:12px 14px;margin:14px 0;font-size:15px}
+.disc strong{color:var(--accent)}
+/* tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:14px 0}
+.tile{border:1px solid var(--line);padding:12px 12px 10px;background:var(--bg)}
+.tile .k{font-family:"Fira Code",monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg2)}
+.tile .v{font-family:"EB Garamond",serif;font-size:30px;font-weight:700;line-height:1.1;margin:4px 0 2px;font-variant-numeric:tabular-nums}
+.tile .s{font-size:13px;color:var(--fg2)}
+.tile.feat{background:var(--panel);color:var(--panel-fg);border-color:var(--panel);box-shadow:0 3px 0 var(--crimson)}
+.tile.feat .k,.tile.feat .s{color:var(--panel-fg);opacity:.8}
+.tile.feat .v{color:var(--panel-accent)}
+/* composition bar */
+.comp{display:flex;height:26px;gap:2px;margin:10px 0 6px;background:var(--bg)}
+.comp div{background:var(--bar);min-width:2px}
+.comp div:nth-child(even){background:var(--bar2)}
+.complbl{display:flex;justify-content:space-between;font-family:"Fira Code",monospace;font-size:10px;color:var(--fg2);letter-spacing:.06em}
+/* lens tabs */
+.tabs{display:flex;gap:0;border:1px solid var(--line);margin:14px 0 10px;overflow-x:auto}
+.tabs button{flex:1 0 auto;background:transparent;border:0;border-right:1px solid var(--line);padding:10px 12px;font-family:"Fira Code",monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg2);cursor:pointer;white-space:nowrap}
+.tabs button:last-child{border-right:0}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--panel-fg)}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.lensnote{font-size:14px;color:var(--fg2);margin-bottom:10px;min-height:2.6em}
+/* inputs */
+.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;background:var(--bg2);padding:12px;border:1px solid var(--line);margin:10px 0 16px}
+.inputs label{display:block;font-family:"Fira Code",monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg2);margin-bottom:4px}
+.inputs input{width:100%;font:15px "Fira Code",monospace;padding:7px 8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-variant-numeric:tabular-nums}
+.inputs input:focus-visible{outline:2px solid var(--accent)}
+.inputs .src{font-size:12px;color:var(--fg2);margin-top:4px}
+.inputs .ill{color:var(--amber);font-family:"Fira Code",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+/* table */
+.tblwrap{overflow-x:auto;border-top:2px solid var(--fg)}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:560px}
+th{font-family:"Fira Code",monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg2);text-align:left;padding:10px 8px 8px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top;font-size:15px}
+td.num,th.num{text-align:right;font-family:"Fira Code",monospace;font-size:13.5px}
+td.name{font-weight:600}
+td.name small{display:block;font-weight:400;color:var(--fg2);font-size:12.5px}
+tr.total td{font-weight:700;border-top:2px solid var(--fg);border-bottom:0;background:var(--bg2)}
+.barcell{position:relative;min-width:120px}
+.barcell .b{height:10px;background:var(--bar);border-radius:0 3px 3px 0}
+.barcell .t{font-family:"Fira Code",monospace;font-size:11px;color:var(--fg2);margin-top:3px}
+.sign{display:inline-block;width:1.1em;text-align:center;color:var(--fg2)}
+/* L4 chips */
+.l4{display:inline-flex;align-items:center;gap:6px;font-family:"Fira Code",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
+.l4 i{width:9px;height:9px;display:inline-block;border-radius:1px}
+.l4.gov i{background:var(--l4-gov)} .l4.gray i{background:var(--l4-gray)} .l4.fraught i{background:var(--l4-fraught)} .l4.open i{background:var(--l4-open);border-radius:50%}
+.l4.gov{color:var(--l4-gov)} .l4.gray{color:var(--l4-gray)} .l4.fraught{color:var(--l4-fraught)} .l4.open{color:var(--l4-open)}
+.l4note{font-size:13px;color:var(--fg2);display:block;margin-top:3px;white-space:normal;font-family:"Source Sans 3",sans-serif;letter-spacing:0;text-transform:none}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin:10px 0;font-size:13px}
+/* lists */
+ol.q{padding-left:1.4em}ol.q li{margin:0 0 10px;max-width:66ch}
+ol.q li b{font-family:"Fira Code",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px}
+ul.cnv{padding-left:1.2em}ul.cnv li{margin:0 0 8px;max-width:66ch}
+.lenses{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin:14px 0}
+.lens{border-top:4px solid var(--bar);padding:10px 0 0}
+.lens:nth-child(4){border-top-color:var(--accent)}
+.lens b{font-family:"Fira Code",monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;display:block;margin-bottom:4px;color:var(--fg2)}
+.lens h3{font-size:18px;margin-bottom:4px}
+.lens p{font-size:14px;color:var(--fg2);margin:0}
+.lens code{font-family:"Fira Code",monospace;font-size:12px;color:var(--fg)}
+.rev{display:grid;grid-template-columns:auto 1fr auto auto;gap:8px 12px;align-items:center;font-variant-numeric:tabular-nums;margin-top:10px}
+.rev .n{font-size:15px}.rev .n small{display:block;color:var(--fg2);font-size:12px}
+.rev .bb{height:10px;background:var(--bar);border-radius:0 3px 3px 0}
+.rev .v{font-family:"Fira Code",monospace;font-size:13px;text-align:right}
+.mech{font-size:14px;color:var(--fg2);border:1px dashed var(--line);padding:10px 12px;margin-top:12px}
+.mech code{font-family:"Fira Code",monospace;font-size:12px;color:var(--fg)}
+footer{margin-top:44px;padding-top:14px;border-top:1px solid var(--line);font-size:13px;color:var(--fg2)}
+@media (max-width:520px){.rev{grid-template-columns:1fr auto;grid-auto-flow:row}.rev .bb{grid-column:1/-1;margin-bottom:6px}}
+.l4list{border-top:2px solid var(--fg)}
+.l4row{display:grid;grid-template-columns:1fr auto;gap:4px 12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.l4row .nm{font-weight:600;font-size:16px}.l4row .nm small{display:block;font-weight:400;color:var(--fg2);font-size:12.5px}
+.l4row .amt{font-family:"Fira Code",monospace;font-size:13.5px;text-align:right;font-variant-numeric:tabular-nums}
+.l4row .amt small{display:block;color:var(--fg2);font-size:11px}
+.l4row .chip{grid-column:1/-1;margin-top:2px}
+.l4row .l4note{grid-column:1/-1}
+@media (max-width:640px){table{min-width:0}th.hide-sm,td.hide-sm{display:none}td,th{padding:9px 5px}td.num,th.num{font-size:12.5px}td.name{font-size:14px}}
+@media (prefers-reduced-motion:no-preference){.barcell .b,.comp div,.rev .bb{transition:width .35s ease}}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <div class="row"><span class="mono">SD DOGE · The Correspondence · Fiscal Instrument</span><span class="mono">Draft · Sept 2026</span></div>
+  <div class="eyebrow">FY2027 Governor's Recommended Budget · General Fund</div>
+  <h1>Four Lenses on <em>FY2027</em></h1>
+  <div class="sub">A delta is a subtraction, not an analysis. Every line gets read four ways before anything is said about it.</div>
+</header>
+
+<div class="disc"><strong>Scope and standing.</strong> General-fund expenditures as proposed December 2, 2025. <strong>No individual official is scored in this document</strong> — by design. Figures below were <strong>transcribed from a secondary source</strong> (a third-party tracker) on 2026-09-02 and carry the <span class="stamp">Reported</span> tier until re-derived from the Bureau of Finance and Management's published budget. Nothing here is publishable until that happens.</div>
+
+<section>
+  <div class="eyebrow">1 · The honest baseline</div>
+  <h2>Context before critique</h2>
+  <p>A conventionally managed budget stays described as one. The general fund is up 2.1% nominal, which is a modest number. The figure the delta view does not put in front of you is the one that frames every proper-object question in this state:</p>
+  <div class="tiles">
+    <div class="tile feat"><div class="k">Federal funds</div><div class="v">42.2%</div><div class="s">of all funds · $3.15B</div></div>
+    <div class="tile"><div class="k">General fund</div><div class="v">$2.52B</div><div class="s">+$52M · +2.1% vs FY2026</div></div>
+    <div class="tile"><div class="k">All funds</div><div class="v">$7.46B</div><div class="s">general + federal + other</div></div>
+    <div class="tile"><div class="k">Other funds</div><div class="v">$1.79B</div><div class="s">derived: all − general − federal</div></div>
+  </div>
+  <div class="eyebrow" style="margin-top:16px">General fund composition · one scale</div>
+  <div class="comp" id="comp" aria-hidden="true"></div>
+  <div class="complbl"><span>Education 43.8%</span><span>HHS 41.2%</span><span>everything else 15.0%</span></div>
+  <p style="margin-top:10px">Two categories are 85% of the general fund. Everything below Corrections rounds to nothing. Any review that spends its attention on the small categories is doing theater; the proper-object question lives in the 85%.</p>
+</section>
+
+<section>
+  <div class="eyebrow">2 · How this document sorts</div>
+  <h2>The four lenses</h2>
+  <div class="lenses">
+    <div class="lens"><b>L1</b><h3>Nominal</h3><p>Straight year-over-year from the budget document. Published because omitting it looks evasive. <code>Δ = (FY27 − FY26) / FY26</code></p></div>
+    <div class="lens"><b>L2</b><h3>Real</h3><p>Both years in constant dollars. One index for the whole document, named with its vintage. <code>Δr = (1+Δ)/(1+π) − 1</code></p></div>
+    <div class="lens"><b>L3</b><h3>Per capita</h3><p>Divided by the served population where it differs from the state's. This draft uses state population for all lines and says so. <code>PC = FY27 / pop</code></p></div>
+    <div class="lens"><b>L4</b><h3>Proper object</h3><p>Is this an object of <em>this</em> government at <em>this</em> level? Three categories. They flag constitutional weight; <strong>they do not declare illegality.</strong></p></div>
+  </div>
+  <div class="legend">
+    <span class="l4 gov"><i></i>Clearly governmental</span>
+    <span class="l4 gray"><i></i>Gray zone</span>
+    <span class="l4 fraught"><i></i>Constitutionally fraught</span>
+    <span class="l4 open"><i></i>Requires line review</span>
+  </div>
+  <p style="font-size:14px;color:var(--fg2)">Authorship disclosed: L4 is applied from a classical-liberal and Protestant reading of the founding record, with declared benchmark frames. It is not neutral civic education and does not pretend to be.</p>
+</section>
+
+<section>
+  <div class="eyebrow">3 · Spending by category</div>
+  <h2>Nine categories, read four ways</h2>
+  <div class="inputs">
+    <div><label for="cpi">L2 deflator · annual %</label><input id="cpi" type="number" step="0.1" value="2.5"><div class="src"><span class="ill" id="cpi-ill">Illustrative</span> — replace with BLS CPI-U, state the vintage</div></div>
+    <div><label for="pop">L3 population · persons</label><input id="pop" type="number" step="1000" value="925000"><div class="src"><span class="ill" id="pop-ill">Illustrative</span> — replace with Census Vintage 2024 estimate</div></div>
+    <div><label for="popg">L3 population growth · annual %</label><input id="popg" type="number" step="0.1" value="0.8"><div class="src"><span class="ill" id="popg-ill">Illustrative</span> — same source, prior vintage</div></div>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Lens">
+    <button role="tab" aria-selected="true" data-lens="l1">L1 Nominal</button>
+    <button role="tab" aria-selected="false" data-lens="l2">L2 Real</button>
+    <button role="tab" aria-selected="false" data-lens="l3">L3 Per capita</button>
+    <button role="tab" aria-selected="false" data-lens="l4">L4 Proper object</button>
+  </div>
+  <div class="lensnote" id="lensnote"></div>
+  <div class="tblwrap"><table id="tbl"><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+  <div class="l4list" id="l4list" hidden></div>
+  <div class="mech"><strong>Mechanical check.</strong> Sum of the nine displayed category deltas = <code id="dsum"></code>; the stated total delta is <code>+$52.0M</code>. The gap is attributable to display rounding on the secondary source and is itself a reason to re-derive from BFM. Category shares sum to <code>100.0%</code>. Delta color is not used anywhere on this page: an increase is not good and a decrease is not bad until L4 has been applied.</div>
+</section>
+
+<section>
+  <div class="eyebrow">4 · Where the money comes from</div>
+  <h2>General fund revenue, with L4 applied to the source</h2>
+  <p>The proper-object question applies to revenue as much as spending. A state can fund a clearly governmental purpose from a source that is itself fraught.</p>
+  <div class="rev" id="rev"></div>
+  <p style="font-size:14px;color:var(--fg2);margin-top:10px">Sales &amp; use tax was unlabeled on the source page; the figure shown is <em>derived</em> as general-fund expenditures minus the seven labeled sources, on the assumption that recommended revenue equals recommended expenditure. FY2026 comparison ticks were not legible and are not reproduced.</p>
+</section>
+
+<section>
+  <div class="eyebrow">5 · Recommended questions</div>
+  <h2>Answerable from records the state already holds</h2>
+  <p>None presumes wrongdoing. Each converts a delta into a question the Bureau of Finance and Management or the Appropriations Committee can answer.</p>
+  <ol class="q">
+    <li><b>Education · L1/L3</b> The category is −0.9% while state aid to education is reported −1.7%. Which lines inside Education grew, by how much, and is any of the growth a reclassification rather than new spending?</li>
+    <li><b>Health &amp; Human Services · L2/L4</b> Of the +$45M, how much is the state share of Medicaid, what FMAP assumption is built in, and what is the five-year trend of the state share since expansion took effect?</li>
+    <li><b>Corrections · L1</b> Of the +8.4%, how much is operating growth versus cost tied to the prison capital decision, and where does the capital appropriation sit — since it is not in this operating table?</li>
+    <li><b>Federal funds · L4 / subsidiarity</b> Which federal programs carry maintenance-of-effort or matching obligations that bind future general-fund appropriations, and what is the total general-fund dollar amount so bound?</li>
+    <li><b>Unclaimed property · L4</b> $58M is booked as recurring general-fund revenue. What share of remitted property is ultimately reclaimed, and what is the five-year trend of the amount booked?</li>
+    <li><b>Public Utilities Commission · funding source</b> A +55.5% figure was reported at the line level. Is that general fund or other funds? Characterizing who pays requires the funding source first.</li>
+    <li><b>Finance &amp; Management · L1</b> A +24.2% figure was reported at the line level. Which line, and is it one-time?</li>
+    <li><b>"Other" · L4</b> One item, +12.0%. What is it?</li>
+    <li><b>All categories · trend</b> Provide FY2023–FY2027 general fund by category so that any line characterized as growing or shrinking rests on five years, not one.</li>
+    <li><b>Reserves</b> What are the budget reserve and general fund balance positions entering FY2027? They are not on the page that produced these figures.</li>
+  </ol>
+</section>
+
+<section>
+  <div class="eyebrow">6 · What this review could not verify</div>
+  <h2>The section that lets the rest stand</h2>
+  <ul class="cnv">
+    <li><strong>Every figure on this page</strong> was transcribed from a third-party tracker's rendering, not from the BFM budget document. Until re-derived, nothing here is publishable.</li>
+    <li>Whether the FY2026 column is the <em>adopted</em> or <em>revised/estimated</em> FY2026 figure. The two produce different deltas.</li>
+    <li>The deflator, the population level, and the population growth rate are <strong>illustrative inputs</strong> until replaced with cited BLS and Census figures with vintages.</li>
+    <li>The sales &amp; use tax figure is derived by subtraction, not read from the source.</li>
+    <li>The PUC (+55.5%) and Finance &amp; Management (+24.2%) figures are line-level drill-downs reported from an earlier session and were not re-captured.</li>
+    <li>Per-capita for Education properly uses ADM, and for Corrections both inmate and state population. This draft uses state population throughout.</li>
+    <li>The capital budget and the "other funds" detail are not represented; the all-funds total is used only for the federal share.</li>
+    <li>A five-year trend has not been established for any line. No line on this page is characterized as a trend.</li>
+  </ul>
+</section>
+
+<section>
+  <div class="eyebrow">7 · Sources</div>
+  <ul class="cnv">
+    <li>Governor's Recommended Budget FY2027, Bureau of Finance and Management, December 2, 2025 — <strong>to be cited by page on re-derivation</strong>.</li>
+    <li>Third-party tracker rendering of the same, captured 2026-09-02 (transcription source; not a citation of record).</li>
+    <li>Watertown DOGE Review FY2026 v4 — method of record for sorting and the could-not-verify section.</li>
+    <li><code>docs/method/budget-normalization.md</code> — the four-lens specification this page implements.</li>
+  </ul>
+</section>
+
+<footer>Built as the fiscal-review instrument, not the scorecard. The two are never merged. Questions presume no wrongdoing; categories flag constitutional weight and do not declare illegality.</footer>
+</div>
+
+<script>
+// ---- data: $M, as displayed on the secondary source 2026-09-02 (Reported tier) ----
+const CATS=[
+ {n:'Education',items:4,fy27:1100,fy26:1110,d:-10.0,share:43.8,l4:'gov',note:'A state duty by the state’s own charter (SD Const. Art. VIII). The proper-object question is F4/subsidiarity: how much of the state-aid formula centralizes decisions the 1880s settlement left local.'},
+ {n:'Health & Human Services',items:3,fy27:1040,fy26:994,d:45.0,share:41.2,l4:'gray',note:'Medicaid expansion is constitutionalized in SD (2022). Lawful and mandated; under F1/F5 a federal-matched entitlement is the largest single subsidiarity question in the budget.'},
+ {n:'Corrections',items:1,fy27:171,fy26:158,d:13.0,share:6.8,l4:'gov',note:'Core function. The question is not whether, but how much of the increase is operating versus capital-driven.'},
+ {n:'Judiciary & Elected Officials',items:7,fy27:95,fy26:95,d:0.494,share:3.8,l4:'gov',note:'Core function.'},
+ {n:'General Government',items:11,fy27:58,fy26:57,d:1.0,share:2.3,l4:'open',note:'Eleven items behind one number. L4 cannot be applied to a category; it is applied to lines.'},
+ {n:'Agriculture & Natural Resources',items:2,fy27:22,fy26:23,d:-0.275,share:0.9,l4:'gray',note:'Mixed: regulatory and stewardship functions alongside promotion and subsidy. Split at the line.'},
+ {n:'Legislature',items:1,fy27:16,fy26:16,d:0,share:0.6,l4:'gov',note:'Core function.'},
+ {n:'Public Safety',items:1,fy27:9,fy26:8,d:0.592,share:0.3,l4:'gov',note:'Core function.'},
+ {n:'Other',items:1,fy27:8,fy26:7,d:0.838,share:0.3,l4:'open',note:'One item, unnamed on the source. Requires the line.'},
+];
+const TOTAL={fy27:2520,fy26:2470,d:52.0};
+const REV=[
+ {n:'Sales & use tax',v:1555,derived:true,l4:'gov',note:'Derived by subtraction'},
+ {n:'Other',v:268,l4:'open',note:'Unspecified on source'},
+ {n:'Contractor’s excise tax',v:226,l4:'gov'},
+ {n:'Lottery',v:185,l4:'fraught',note:'State-run gambling as recurring revenue. Lawful (Art. III §25); fraught under the benchmark.'},
+ {n:'Insurance company tax',v:159,l4:'gov'},
+ {n:'Unclaimed property receipts',v:58,l4:'fraught',note:'Other people’s property booked as state revenue. See question 5.'},
+ {n:'Tobacco taxes',v:39,l4:'gray',note:'Excise on a disfavored good; revenue depends on the behavior it taxes.'},
+ {n:'Bank franchise tax',v:30,l4:'gov'},
+];
+const L4L={gov:'Clearly governmental',gray:'Gray zone',fraught:'Constitutionally fraught',open:'Requires line review'};
+const NOTES={
+ l1:'Straight from the document. The number the competitor publishes. Sign shown as a glyph, never as a color.',
+ l2:'Deflated by the L2 input. At the illustrative 2.5%, the general fund is roughly flat in real terms; at 3.0% it is down. The deflator decides the story, which is why it must be cited.',
+ l3:'Dollars per resident, and the real per-capita change using both L2 and L3 inputs. State population for every line in this draft — see “could not verify.”',
+ l4:'The question the delta view cannot ask. Categories are applied to lines, not totals; where a category hides many lines it is marked for line review rather than guessed.'
+};
+const fmtM=v=>Math.abs(v)>=1000?('$'+(v/1000).toFixed(2)+'B'):Math.abs(v)>=1?('$'+v.toFixed(v%1?1:0)+'M'):('$'+Math.round(v*1000)+'K');
+const sgn=v=>v>0?'<span class="sign">+</span>':v<0?'<span class="sign">−</span>':'<span class="sign">·</span>';
+const pct=v=>(v>0?'+':v<0?'−':'')+Math.abs(v).toFixed(1)+'%';
+const $=id=>document.getElementById(id);
+let lens='l1';
+function inputs(){return{cpi:+$('cpi').value/100,pop:+$('pop').value,popg:+$('popg').value/100}}
+function nomPct(c){return c.fy26?100*c.d/c.fy26:0}
+function render(){
+  const {cpi,pop,popg}=inputs();
+  $('lensnote').textContent=NOTES[lens];
+  const maxV=Math.max(...CATS.map(c=>c.fy27));
+  let head='',rows='';
+  const bar=c=>`<td class="barcell hide-sm"><div class="b" style="width:${(100*c.fy27/maxV).toFixed(1)}%"></div><div class="t">${c.share.toFixed(1)}% of GF</div></td>`;
+  const name=c=>`<td class="name">${c.n}<small>${c.items} line item${c.items>1?'s':''}</small></td>`;
+  if(lens==='l1'){
+    head='<tr><th>Category</th><th class="hide-sm">Share</th><th class="num">FY2027</th><th class="num">FY2026</th><th class="num">Δ $</th><th class="num">Δ %</th></tr>';
+    for(const c of CATS)rows+=`<tr>${name(c)}${bar(c)}<td class="num">${fmtM(c.fy27)}</td><td class="num">${fmtM(c.fy26)}</td><td class="num">${sgn(c.d)}${fmtM(Math.abs(c.d))}</td><td class="num">${pct(nomPct(c))}</td></tr>`;
+    rows+=`<tr class="total"><td class="name">Total</td><td class="hide-sm"></td><td class="num">${fmtM(TOTAL.fy27)}</td><td class="num">${fmtM(TOTAL.fy26)}</td><td class="num">${sgn(TOTAL.d)}${fmtM(TOTAL.d)}</td><td class="num">${pct(100*TOTAL.d/TOTAL.fy26)}</td></tr>`;
+  }else if(lens==='l2'){
+    head='<tr><th>Category</th><th class="hide-sm">Share</th><th class="num">FY2027</th><th class="num">Δ nominal</th><th class="num">Δ real</th><th class="num hide-sm">FY2026 in FY27 $</th></tr>';
+    for(const c of CATS){const n=nomPct(c)/100,r=(1+n)/(1+cpi)-1;rows+=`<tr>${name(c)}${bar(c)}<td class="num">${fmtM(c.fy27)}</td><td class="num">${pct(n*100)}</td><td class="num"><strong>${pct(r*100)}</strong></td><td class="num hide-sm">${fmtM(c.fy26*(1+cpi))}</td></tr>`}
+    const n=TOTAL.d/TOTAL.fy26,r=(1+n)/(1+cpi)-1;
+    rows+=`<tr class="total"><td class="name">Total</td><td class="hide-sm"></td><td class="num">${fmtM(TOTAL.fy27)}</td><td class="num">${pct(n*100)}</td><td class="num">${pct(r*100)}</td><td class="num hide-sm">${fmtM(TOTAL.fy26*(1+cpi))}</td></tr>`;
+  }else if(lens==='l3'){
+    head='<tr><th>Category</th><th class="hide-sm">Share</th><th class="num">FY2027 / resident</th><th class="num">FY2026 / resident</th><th class="num">Δ per capita, real</th></tr>';
+    const pop26=pop/(1+popg);
+    for(const c of CATS){const n=nomPct(c)/100,r=(1+n)/((1+cpi)*(1+popg))-1;rows+=`<tr>${name(c)}${bar(c)}<td class="num">$${(c.fy27*1e6/pop).toLocaleString(undefined,{maximumFractionDigits:0})}</td><td class="num">$${(c.fy26*1e6/pop26).toLocaleString(undefined,{maximumFractionDigits:0})}</td><td class="num"><strong>${pct(r*100)}</strong></td></tr>`}
+    const n=TOTAL.d/TOTAL.fy26,r=(1+n)/((1+cpi)*(1+popg))-1;
+    rows+=`<tr class="total"><td class="name">Total</td><td class="hide-sm"></td><td class="num">$${(TOTAL.fy27*1e6/pop).toLocaleString(undefined,{maximumFractionDigits:0})}</td><td class="num">$${(TOTAL.fy26*1e6/pop26).toLocaleString(undefined,{maximumFractionDigits:0})}</td><td class="num">${pct(r*100)}</td></tr>`;
+  }
+  const isL4=lens==='l4';
+  $('tbl').hidden=isL4; $('l4list').hidden=!isL4;
+  if(isL4){$('l4list').innerHTML=CATS.map(c=>`<div class="l4row"><div class="nm">${c.n}<small>${c.items} line item${c.items>1?'s':''}</small></div><div class="amt">${fmtM(c.fy27)}<small>${c.share.toFixed(1)}% of GF</small></div><span class="l4 ${c.l4} chip"><i></i>${L4L[c.l4]}</span><span class="l4note">${c.note}</span></div>`).join('')}
+  else{$('thead').innerHTML=head;$('tbody').innerHTML=rows;}
+  // illustrative stamps
+  for(const [id,def] of [['cpi','2.5'],['pop','925000'],['popg','0.8']]){$(id+'-ill').textContent=$(id).value===def?'Illustrative':'Operator value'}
+}
+// composition bar
+$('comp').innerHTML=CATS.map(c=>`<div style="width:${c.share}%" title="${c.n} ${c.share}%"></div>`).join('');
+// revenue
+(()=>{const max=Math.max(...REV.map(r=>r.v));$('rev').innerHTML=REV.map(r=>`<div class="n">${r.n}${r.note?`<small>${r.note}</small>`:''}</div><div class="bb" style="width:${(100*r.v/max).toFixed(1)}%"></div><div class="v">${fmtM(r.v)}${r.derived?'<span class="stamp muted" style="margin-left:6px">derived</span>':''}</div><span class="l4 ${r.l4}"><i></i>${L4L[r.l4]}</span>`).join('')})();
+// delta sum check
+$('dsum').textContent=(()=>{const s=CATS.reduce((a,c)=>a+c.d,0);return (s>=0?'+':'−')+'$'+Math.abs(s).toFixed(1)+'M'})();
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected','false'));b.setAttribute('aria-selected','true');lens=b.dataset.lens;render()}));
+['cpi','pop','popg'].forEach(id=>$(id).addEventListener('input',render));
+render();
+</script>

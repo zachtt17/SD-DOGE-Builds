@@ -43,6 +43,7 @@ authorship becomes an attackable one. See [`docs/method/`](docs/method/).
 docs/strategy/   what we decided and why, with the conditions that would reverse each decision
 docs/method/     the instruments themselves — benchmark conformance, budget normalization
 viability-gate/  the unpassed gate: protocol, tally sheet, decision rule
+builds/          HTML design references implementing the method (not production; not publishable until re-derived from primary sources)
 ```
 
 ## Reading order
