@@ -57,7 +57,7 @@ plumbing. You do everything that is judgment, access, or signature.**
 | Y5 | **Reconcile the five frame rationales** against spec v0.3 | The spec lives with you, not in this repo. | 20 min |
 | Y6 | **Load `/pricing` and `/terms` on their site** on your own network; screenshot into `sources/competitor/` | Blocked from here. Terms decide whether their data is ever an input. | 10 min |
 | Y7 | **Pick the friendly subject who gets an unflattering score** | Nobody can choose this for you, and the instrument is a campaign tool without it. | A decision |
-| Y8 | **Turn on GitHub Pages** — repo Settings → Pages → source: branch, folder `/site` | One click that requires your GitHub login. | 2 min |
+| Y8 | **Turn on GitHub Pages** — repo Settings → Pages → Build and deployment → Source: **GitHub Actions** | One click that requires your GitHub login. The workflow in `.github/workflows/pages.yml` does the rest on every push to `main`. | 2 min |
 | Y9 | **Sign each artifact** before it publishes | Owned authorship means a name on it. | Read time |
 
 ### Claude Code does these
@@ -65,12 +65,12 @@ plumbing. You do everything that is judgment, access, or signature.**
 | # | Task | Depends on |
 |---|---|---|
 | C1 | Extract tables from the primary PDFs, cite by page, re-derive every figure on the Four Lenses page, flip its tier from Reported to Verified | Y2 |
-| C2 | Build the **methodology page** from `docs/method/` — plain-language, phone-readable, authorship on top | Nothing — can start now |
-| C3 | Build the **site shell**: home, methodology, artifacts index, sources — static HTML in the house tokens | Nothing — can start now |
+| C2 | Build the **methodology page** from `docs/method/` — plain-language, phone-readable, authorship on top | **Done** — `site/methodology.html` |
+| C3 | Build the **site shell**: home, methodology, artifacts index, sources — static HTML in the house tokens | **Done** — `site/` |
 | C4 | Draft the **first local artifact** (Watertown FY2026 review is already written; port it into the same four-lens frame) | Y2 (the adopted budget) |
 | C5 | Build the **scorecard renderer**: you fill a spreadsheet (subject, axis, band, citation, reason); it renders the table, the gap column, and the could-not-verify section | Y1 result |
 | C6 | Draft proposed L4 calls, questions, and could-not-verify sections for each artifact — for you to edit | C1 / C4 |
-| C7 | Set up the repo so a push publishes the site automatically | Y8 |
+| C7 | Set up the repo so a push publishes the site automatically | **Done** — workflow committed; activates on Y8 and a merge to `main` |
 | C8 | *Gated:* write a fetcher for LRC bill and vote data (the LRC site serves its own pages from public JSON) | Gate PASS **and** terms read |
 | C9 | *Gated:* the interactive matrix | Gate PASS |
 
