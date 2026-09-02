@@ -53,4 +53,5 @@ builds/          HTML design references implementing the method (not production;
 3. [`docs/strategy/04-coverage-map.md`](docs/strategy/04-coverage-map.md) — which gaps are protected and which are merely empty
 4. [`docs/strategy/02-positioning.md`](docs/strategy/02-positioning.md) — consume, don't compete; ship the instrument, not a portal
 5. [`docs/strategy/00-decision-record.md`](docs/strategy/00-decision-record.md) — the standing decisions and their reversal conditions
-6. [`viability-gate/README.md`](viability-gate/README.md) — the thing to do this week
+6. [`docs/strategy/05-build-plan.md`](docs/strategy/05-build-plan.md) — who does what, in plain terms
+7. [`viability-gate/README.md`](viability-gate/README.md) — the thing to do this week

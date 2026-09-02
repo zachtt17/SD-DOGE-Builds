@@ -64,6 +64,13 @@ Observed in-session, not re-verified here:
 
 ## 4. Monetization — Indicated, not established
 
+> **Amended 2026-09-02 (later capture).** The site's own navigation on `sdlegtracker.com` reads
+> *Dashboard · Bills · Legislators · Committees · Budget · Elections · Search · Blog* with a
+> Login control — **no Pricing and no Integrations entry.** This contradicts the earlier
+> in-session observation of those routes. Either they exist off-nav, exist only on
+> `pierrereview.com`, or were misread. Monetization is now **weakly indicated**: a login exists;
+> nothing else is confirmed. The pinned welcome post dates the site to **February 28, 2026.**
+
 - A `/pricing` route in the nav — **Indicated**
 - An auth/login system — **Indicated**
 - An `/integrations` page — **Indicated**
