@@ -122,3 +122,36 @@ plumbing. You do everything that is judgment, access, or signature.**
 
 Print `viability-gate/tally-sheet.md`. Sign the thresholds. That's it. Everything else in this
 plan is downstream of a number that only you can produce.
+
+---
+
+## Network access for Claude Code sessions
+
+This is **not a repo setting.** It is configured once at claude.ai/code → Environments →
+this repo's environment → Network access. A repo cannot grant itself network access.
+
+Choose **Full**, or choose **Limited** and paste this allowlist, one host per line:
+
+```
+sdlegislature.gov
+bfm.sd.gov
+open.sd.gov
+sdsos.gov
+doe.sd.gov
+watertownsd.us
+codington.org
+watertown.k12.sd.us
+founders.archives.gov
+avalon.law.yale.edu
+loc.gov
+api.bls.gov
+api.census.gov
+pierrereview.com
+sdlegtracker.com
+```
+
+No API keys are required for any host on this list. BLS and Census answer keyless at low
+volume; a free key only raises the daily limit.
+
+Until this is set, Claude Code cannot fetch from any state source, and the workaround is
+Y2 in the plan: download the PDFs yourself and place them in `sources/`.
